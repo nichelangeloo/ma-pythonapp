@@ -1,12 +1,11 @@
 name: CI
-run-name: ${{ github.actor }} is testing out GitHub Actions
+run-name: ${{ github.actor }} triggered the workflow
 
 env:
-  GITHUB_ACTIONS: true
+  GITHUB_ACTIONS: True
 
 on:
   pull_request:
-    branches: [ "main" ]
 
 jobs:
   github-task-job:
