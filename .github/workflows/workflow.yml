@@ -1,5 +1,5 @@
 name: CI
-run-name: ${{ github.actor }} triggered the workflow
+run-name: Workflow has been triggered by ${{ github.actor }}
 
 env:
   GITHUB_ACTIONS: True
@@ -10,11 +10,11 @@ on:
 jobs:
   github-task-job:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Show GITHUB_ACTIONS env variable
-      run: echo ${{ env.GITHUB_ACTIONS }}
-    - name: Show name of branch and repository
-      run: echo "Branch - ${{ github.head_ref }}, Repository - ${{ github.repository }}"
-    - name: Show event name that triggered workflow
-      run: echo "Event - ${{ github.event_name }}"
+      - name: Show GITHUB_ACTIONS env variable
+        run: echo ${{ env.GITHUB_ACTIONS }}
+      - name: Show name of branch and repository
+        run: echo "Branch - ${{ github.head_ref }}, Repository - ${{ github.repository }}"
+      - name: Show event name that triggered workflow
+        run: echo "Event - ${{ github.event_name }}"
