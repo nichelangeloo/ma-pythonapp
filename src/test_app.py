@@ -1,10 +1,9 @@
+from app import app, db
 import pytest
 from unittest.mock import patch
 import os
 
 os.environ.setdefault('DB_CONNECTION', 'sqlite:///:memory:')
-
-from app import app, db
 
 
 @pytest.fixture
@@ -62,5 +61,5 @@ def test_external_call(client):
         mock_get.return_value.status_code = 200
         mock_get.return_value.text = 'Success'
         response = client.get('/external-call')
-        assert b'Extarnal call response: Success' in response.data
+        assert b'External call response: Success' in response.data
         assert response.status_code == 200
