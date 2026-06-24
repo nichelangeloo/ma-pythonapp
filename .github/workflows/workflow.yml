@@ -103,7 +103,7 @@ jobs:
       uses: azure/setup-helm@v4.2.0
 
     - name: Lint helm
-      run: helm lint ./kube2py
+      run: helm lint ./kube2py/
 
     - name: Template Helm
       run: helm template kube2py ./kube2py/ -f /kube2py/values.yaml
