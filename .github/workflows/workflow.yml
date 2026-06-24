@@ -98,3 +98,20 @@ jobs:
       with:
         name: helm-artifacts
         path: .
+
+    - name: Set Up Helm
+      uses: azure/setup-helm@v4.2.0
+
+    - name: Lint helm
+      run: helm lint ./kube2py
+
+    - name: Template Helm
+      run: helm template kube2py ./kube2py/ -f /kube2py/values.yaml
+
+    - name: Package Helm
+      run: helm package ./kube2py
+    - name: Upload Helm Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: helm-package
+        path: ./*.tgz
