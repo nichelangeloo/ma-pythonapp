@@ -6,7 +6,17 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment Deploy To"
+        required: true
+        type: choice
+        options: ['dev', 'staging', 'production']
+      message:
+        description: 'Test Message'
+        required: false
+        type: string
 env:
   PYTHON_VERSION: 3.13
   DOCKER_IMAGE_NAME: kube2py
