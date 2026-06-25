@@ -1,4 +1,4 @@
-commmon:
+common:
   namespace: mateapp
 
 global:
