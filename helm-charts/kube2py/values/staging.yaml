@@ -1,6 +1,9 @@
-
 global:
   ENVIRONMENT: "Staging"
+  namespace: kube2py-staging
+
+mysql:
+  namespace: mysql-staging
 
 kube2py:
   configs:
